@@ -1,0 +1,30 @@
+# Featured projects on the home page ("Now shipping" tabs)
+- id: agenticpw
+  name: AgenticPw
+  badge: ACTIVE · v0.13.0
+  blurb: >-
+    An AI teammate for a Playwright suite. Describe a flow in plain English and
+    get a test verified green before it ships — or point it at a failing spec and
+    get a dry-run diff, or an honest refusal.
+  stack: [TypeScript, Playwright, Postgres, LLM agents, GitHub Actions]
+  links:
+    - { label: GitHub, url: "https://github.com/JagannathaReddy/AgenticPw" }
+  steps:
+    - { title: Describe or point, body: "A flow in plain English, or a spec that just went red." }
+    - { title: "Verify, or refuse", body: "A fix ships only if it actually passes. If it would hide a real bug, it says so." }
+    - { title: Leave a manifest, body: "Every run records what changed, what it cost, and why." }
+
+- id: luma
+  name: luma-browser
+  badge: PUBLISHED · npm
+  blurb: >-
+    A CLI and background daemon for driving real browsers from plain JavaScript —
+    no native binaries. Ships as a plugin for Claude Code, Cursor, Codex and Copilot.
+  stack: [Node.js, QuickJS WASM, Playwright RPC, Turborepo]
+  links:
+    - { label: GitHub, url: "https://github.com/JagannathaReddy/luma-browser" }
+    - { label: npm, url: "https://www.npmjs.com/package/@jagannathamv/luma-browser" }
+  steps:
+    - { title: Write a script, body: "Plain JavaScript, written by a person or an agent." }
+    - { title: Run it sandboxed, body: "Executes inside QuickJS, not Node — no filesystem access." }
+    - { title: Drive a real browser, body: "Controls a real, authenticated session through the daemon." }

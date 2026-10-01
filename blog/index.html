@@ -1,0 +1,61 @@
+---
+layout: default
+title: Field notes
+page_class: blog
+description: Notes on test automation, AI agents and the plumbing in between.
+---
+<div class="wrap">
+  <header class="blog-head">
+    <h1 class="display blog-title">Field<br>notes</h1>
+    <div class="blog-intro">
+      <p class="lead">Notes on test automation, AI agents and the plumbing in between — what I tried, what broke, and what finally passed.</p>
+      <div class="btn-row">
+        <a class="mono accent small-link" href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
+        <a class="mono small-link" href="https://{{ site.social.medium }}.medium.com/">Older posts on Medium ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="filters" role="toolbar" aria-label="Filter posts by topic" data-filters>
+    <button type="button" aria-pressed="true" data-filter="All">All</button>
+    {% for t in site.topics %}<button type="button" aria-pressed="false" data-filter="{{ t }}">{{ t }}</button>{% endfor %}
+  </div>
+
+  <main class="blog-main">
+    {% assign featured = site.posts.first %}
+    {% if featured %}
+    <a class="featured" href="{{ featured.url | relative_url }}" data-tag="{{ featured.tag }}">
+      <div>
+        <span class="mono small featured-meta">LATEST · {{ featured.tag | upcase }} · {{ featured.date | date: '%b %-d, %Y' | upcase }}</span>
+        <span class="display featured-title">{{ featured.title }}</span>
+      </div>
+      <div class="featured-side">
+        <span class="lead-sm">{{ featured.summary }}</span>
+        <span class="mono">Read the post →</span>
+      </div>
+    </a>
+    {% endif %}
+
+    <ol class="post-list">
+      {% for post in site.posts offset: 1 %}
+      <li data-tag="{{ post.tag }}">
+        <a href="{{ post.url | relative_url }}">
+          <span class="mono muted small">{{ post.date | date: '%b %Y' }}</span>
+          <span class="pl-main"><span class="pl-title">{{ post.title }}</span><span class="muted">{{ post.summary }}</span></span>
+          <span class="pl-tags mono small"><span class="chip">{{ post.tag }}</span><span class="muted">Blog</span></span>
+        </a>
+      </li>
+      {% endfor %}
+      {% for ext in site.data.external_posts %}
+      <li data-tag="{{ ext.tag }}">
+        <a href="{{ ext.url }}">
+          <span class="mono muted small">{{ ext.date | date: '%b %Y' }}</span>
+          <span class="pl-main"><span class="pl-title">{{ ext.title }}</span><span class="muted">{{ ext.summary }}</span></span>
+          <span class="pl-tags mono small"><span class="chip">{{ ext.tag }}</span><span class="muted">{{ ext.where }} ↗</span></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="empty muted" data-empty hidden>Nothing under this topic yet.</p>
+  </main>
+</div>

@@ -1,0 +1,51 @@
+# ------------------------------------------------------------------
+# Site settings — edit these, commit, and the site rebuilds itself.
+# ------------------------------------------------------------------
+title: Jagannatha MV
+tagline: Tests that heal themselves.
+description: >-
+  SDET turned agent engineer. I build the agents that run, read and fix
+  test suites — and refuse when a fix would hide a real bug.
+author: Jagannatha MV
+email: jvenkataravanappa@gmail.com
+role: SDET · Agent engineer
+company: Signify
+
+url: "https://jagannathareddy.github.io"
+baseurl: ""
+
+# Put your photo at assets/img/me.jpg and set: avatar: /assets/img/me.jpg
+avatar: ""
+# Upload a fresh PDF to assets/ and point this at it (e.g. /assets/resume.pdf)
+resume_url: "https://jagannathav.github.io/assets/Jagannath_Updated_Automation_Resume.pdf"
+
+social:
+  github: JagannathaReddy
+  linkedin: jagannathasdet
+  medium: jagannatham66
+  twitter: Jagannatham66
+
+# Used by the /write/ page to open GitHub's "new file" screen for you.
+github_repo: JagannathaReddy/JagannathaReddy.github.io
+github_branch: main
+
+# Blog topics (shown as filters on /blog/ and in the /write/ page)
+topics: [Agents, Playwright, Karate, Notes]
+
+# ------------------------------------------------------------------
+# Build settings — you normally don't need to touch these.
+# ------------------------------------------------------------------
+permalink: /blog/:year/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+feed:
+  path: feed.xml
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+exclude: [README.md, Gemfile, Gemfile.lock, vendor]

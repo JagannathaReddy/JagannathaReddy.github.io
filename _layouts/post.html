@@ -1,0 +1,45 @@
+---
+layout: default
+page_class: post
+---
+<article>
+  <header class="wrap post-head">
+    <a class="mono back" href="{{ '/blog/' | relative_url }}">← All posts</a>
+    <div class="meta mono">
+      {% if page.tag %}<span class="accent">{{ page.tag | upcase }}</span>{% endif %}
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%b %-d, %Y' | upcase }}</time>
+      <span>BY {{ site.author | upcase }}</span>
+    </div>
+    <h1 class="display post-title">{{ page.title }}</h1>
+    {% if page.summary %}<p class="post-dek">{{ page.summary }}</p>{% endif %}
+  </header>
+  <div class="rule"></div>
+
+  <div class="prose">
+    {{ content }}
+
+    <aside class="author">
+      {% if site.avatar != "" %}
+        <img class="avatar" src="{{ site.avatar | relative_url }}" alt="{{ site.author }}">
+      {% else %}
+        <span class="avatar avatar-initials" aria-hidden="true">MV</span>
+      {% endif %}
+      <div class="author-text">
+        <strong>{{ site.author }}</strong>
+        <span>{{ site.role }} at {{ site.company }}. Builds AgenticPw and luma-browser.</span>
+      </div>
+      <a class="btn btn-dark" href="mailto:{{ site.email }}?subject=Re: {{ page.title | uri_escape }}">Reply by email</a>
+    </aside>
+  </div>
+</article>
+
+<nav class="wrap prevnext" aria-label="More posts">
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}"><span class="mono muted">← PREVIOUS</span><span class="pn-title">{{ page.previous.title }}</span></a>
+  {% else %}
+    <a href="{{ '/blog/' | relative_url }}"><span class="mono muted">← ALL POSTS</span><span class="pn-title">Back to Field Notes</span></a>
+  {% endif %}
+  {% if page.next %}
+    <a class="pn-right" href="{{ page.next.url | relative_url }}"><span class="mono muted">NEXT →</span><span class="pn-title">{{ page.next.title }}</span></a>
+  {% endif %}
+</nav>

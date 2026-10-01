@@ -1,0 +1,14 @@
+# Posts published elsewhere (listed on /blog/ next to your own posts)
+- title: Extent Report Integration using Karate
+  summary: Turning Karate API-test results into a report people outside the suite can read.
+  tag: Karate
+  date: 2022-06-18
+  where: Medium
+  url: "https://jagannatham66.medium.com/"
+
+- title: Extent Report Integration using Karate DSL
+  summary: The first write-up on wiring Karate into ExtentReports.
+  tag: Karate
+  date: 2020-10-19
+  where: Medium
+  url: "https://jagannatham66.medium.com/"

@@ -1,0 +1,66 @@
+---
+layout: default
+title: Write a post
+page_class: write
+noindex: true
+sitemap: false
+---
+<div class="wrap write">
+  <div class="write-bar">
+    <div class="write-title-row">
+      <h1 class="display write-h">New post</h1>
+      <span class="mono muted small" data-saved aria-live="polite">Draft saved in this browser</span>
+    </div>
+    <div class="btn-row">
+      <button type="button" class="btn btn-ghost mono" data-view>Split view</button>
+      <button type="button" class="btn btn-outline mono" data-copy>Copy Markdown</button>
+      <button type="button" class="btn btn-outline mono" data-download>Download .md</button>
+      <button type="button" class="btn btn-accent mono" data-publish>Publish on GitHub →</button>
+    </div>
+  </div>
+  <p class="write-help muted">Publishing opens GitHub with your post filled in as a new file in <code>_posts/</code>. Click <strong>Commit changes</strong> there and it's live in about a minute. Only you can commit to your repository, so visitors can't post from this page.</p>
+  <p class="alert" role="alert" data-error hidden></p>
+
+  <div class="editor" data-editor data-mode="split">
+    <section class="ed-pane" aria-label="Editor">
+      <label class="field">
+        <span class="label mono">TITLE</span>
+        <input type="text" class="title-input" data-f="title" placeholder="Give it a title">
+      </label>
+      <div class="field-row">
+        <label class="field">
+          <span class="label mono">TOPIC</span>
+          <select data-f="tag">{% for t in site.topics %}<option value="{{ t }}">{{ t }}</option>{% endfor %}</select>
+        </label>
+        <label class="field">
+          <span class="label mono">DATE</span>
+          <input type="date" data-f="date">
+        </label>
+      </div>
+      <label class="field">
+        <span class="label mono">SUMMARY</span>
+        <input type="text" data-f="summary" placeholder="One line for the blog list">
+      </label>
+      <label class="field field-grow">
+        <span class="label mono label-split"><span>BODY · MARKDOWN</span><span>## heading · &gt; quote · ``` code</span></span>
+        <textarea data-f="body" spellcheck="true"></textarea>
+      </label>
+    </section>
+    <section class="pv-pane" aria-label="Preview">
+      <span class="label mono">LIVE PREVIEW</span>
+      <span class="mono accent small" data-pv="tag"></span>
+      <h2 class="display pv-title" data-pv="title"></h2>
+      <p class="pv-dek" data-pv="summary"></p>
+      <div class="rule"></div>
+      <div class="prose prose-sm" data-pv="body"></div>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script>
+  window.SITE_REPO = {{ site.github_repo | jsonify }};
+  window.SITE_BRANCH = {{ site.github_branch | jsonify }};
+  window.SITE_TOPICS = {{ site.topics | jsonify }};
+</script>
+<script src="{{ '/assets/js/write.js' | relative_url }}" defer></script>
