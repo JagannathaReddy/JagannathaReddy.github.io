@@ -32,6 +32,22 @@ github_branch: main
 # Blog topics (shown as filters on /blog/ and in the /write/ page)
 topics: [Agents, Playwright, Karate, Notes]
 
+# Words per minute used for "min read" on posts
+reading_wpm: 220
+
+# Newsletter (optional). Create a free account at https://buttondown.com,
+# then put your Buttondown username here and a sign-up box appears under
+# every post and on the blog page. Leave empty to hide it.
+newsletter:
+  buttondown_username: ""
+
+# Main navigation (order matters)
+nav:
+  - { title: Work, url: "/#work" }
+  - { title: Blog, url: "/blog/" }
+  - { title: About, url: "/about/" }
+  - { title: Now, url: "/now/" }
+
 # ------------------------------------------------------------------
 # Build settings — you normally don't need to touch these.
 # ------------------------------------------------------------------

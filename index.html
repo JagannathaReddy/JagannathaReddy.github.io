@@ -5,7 +5,7 @@ page_class: home
 <div class="wrap">
   <header class="hero">
     <div class="hero-top mono">
-      <span>{{ site.role | upcase }}</span>
+      <a class="hero-top-left" href="{{ '/about/' | relative_url }}">{% include avatar.html class="hero-avatar" %}<span>{{ site.author | upcase }} · {{ site.role | upcase }}</span></a>
       <span>CURRENTLY AT {{ site.company | upcase }}</span>
     </div>
     <h1 class="display hero-title">Tests that <span class="accent">heal</span> themselves.</h1>

@@ -1,0 +1,68 @@
+---
+layout: page
+title: About
+dek: SDET turned agent engineer. I build the frameworks and agents that keep test suites honest.
+page_class: about
+permalink: /about/
+---
+<div class="about-grid">
+  <aside class="about-side">
+    {% include avatar.html class="about-photo" %}
+    <ul class="about-facts">
+      <li><span>ROLE</span><span>{{ site.role }}</span></li>
+      <li><span>COMPANY</span><span>{{ site.company }}</span></li>
+      <li><span>FOCUS</span><span>Playwright · AI test agents</span></li>
+      <li><span>STUDIED</span><span>B.E., Information Science, VTU</span></li>
+    </ul>
+    <div class="btn-row">
+      <a class="btn btn-dark" href="mailto:{{ site.email }}">Email me</a>
+      {% if site.resume_url != "" %}<a class="btn btn-outline" href="{{ site.resume_url | relative_url }}">Résumé ↓</a>{% endif %}
+    </div>
+  </aside>
+
+  <div>
+    <div class="bio">
+      <p>Hi, I'm Jagannatha. For most of my career I've built the plumbing underneath other people's test suites: page-object scaffolds, API test frameworks, reporters, the CI wiring nobody notices until it breaks.</p>
+      <p>These days I build what comes after that plumbing: agents that write, run and repair Playwright tests, and that are allowed to say no when a "fix" would just hide a real bug. Same instinct as always. Don't trust an assertion until you've watched it fail, and watched the fix pass.</p>
+    </div>
+
+    <section class="about-section" aria-labelledby="bio-h">
+      <h2 id="bio-h" class="eyebrow mono">BIO FOR EVENTS &amp; INTROS</h2>
+      <div class="bio-tools">
+        <div class="bio-switch" role="group" aria-label="Bio length" data-bio-switch>
+          <button type="button" aria-pressed="true" data-bio="short">Short</button>
+          <button type="button" aria-pressed="false" data-bio="long">Long</button>
+        </div>
+        <button type="button" class="copy-btn" data-bio-copy>Copy bio</button>
+      </div>
+      <div class="bio" data-bio-text="short">
+        <p>Jagannatha MV is an SDET at Signify who builds AI agents for test automation. He created AgenticPw, an AI teammate for Playwright suites, and luma-browser, a sandboxed CLI for driving real browsers from plain JavaScript.</p>
+      </div>
+      <div class="bio" data-bio-text="long" hidden>
+        <p>Jagannatha MV is a Software Development Engineer in Test at Signify, where his work is shifting from writing tests by hand to building the systems that write, run and heal them.</p>
+        <p>Before Signify he spent seven years as a Senior Analyst at Harman International, owning test automation, API testing and a data-lake project, and building the Cypress and Karate frameworks his teams relied on. He started out at Snapooh Media, a startup where he picked up a little of every layer of the stack, and holds a B.E. in Information Science from Visvesvaraya Technological University.</p>
+        <p>His open-source work includes AgenticPw, an AI teammate that writes Playwright tests and proposes verified fixes (or honest refusals) for failing ones, and luma-browser, a CLI and daemon that lets scripts drive real browsers from a QuickJS sandbox. He writes about test automation and AI agents at jagannathareddy.github.io.</p>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="career-h">
+      <h2 id="career-h" class="eyebrow mono">CAREER</h2>
+      <ol class="timeline">
+        <li><span class="mono muted small">APR 2024 – NOW</span><div><strong>SDET · Signify</strong><br><span class="muted">Building what writes, runs and heals tests.</span></div></li>
+        <li><span class="mono muted small">2017 – 2024</span><div><strong>Senior Analyst · Harman International</strong><br><span class="muted">Automation, a data-lake project and API testing; Cypress and Karate frameworks.</span></div></li>
+        <li><span class="mono muted small">2015 – 2017</span><div><strong>Author · Snapooh Media</strong><br><span class="muted">Startup generalist across the stack.</span></div></li>
+        <li><span class="mono muted small">2009 – 2013</span><div><strong>B.E., Information Science · VTU</strong><br><span class="muted">Where it started.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="about-section" aria-labelledby="elsewhere-h">
+      <h2 id="elsewhere-h" class="eyebrow mono">ELSEWHERE</h2>
+      <div class="btn-row">
+        <a class="btn btn-outline" href="https://github.com/{{ site.social.github }}">GitHub</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/{{ site.social.linkedin }}/">LinkedIn</a>
+        <a class="btn btn-outline" href="https://{{ site.social.medium }}.medium.com/">Medium</a>
+        <a class="btn btn-outline" href="https://twitter.com/{{ site.social.twitter }}">Twitter / X</a>
+      </div>
+    </section>
+  </div>
+</div>

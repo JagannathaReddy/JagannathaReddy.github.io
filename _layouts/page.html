@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<div class="wrap">
+  <header class="page-head">
+    <h1 class="display page-title">{{ page.title }}</h1>
+    {% if page.dek %}<p class="page-dek">{{ page.dek }}</p>{% endif %}
+  </header>
+</div>
+<div class="wrap page-body">
+  {{ content }}
+</div>

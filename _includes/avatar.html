@@ -1,0 +1,6 @@
+{%- comment -%} Usage: {% include avatar.html class="extra-class" %} {%- endcomment -%}
+{%- if site.avatar != "" -%}
+<img class="avatar {{ include.class }}" src="{{ site.avatar | relative_url }}" alt="{{ site.author }}" width="64" height="64">
+{%- else -%}
+<span class="avatar avatar-initials {{ include.class }}" role="img" aria-label="{{ site.author }}">MV</span>
+{%- endif -%}

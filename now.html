@@ -1,0 +1,53 @@
+---
+layout: page
+title: Now
+dek: What I'm focused on at the moment. If it's not here, I'm probably saying no to it.
+page_class: now
+permalink: /now/
+updated: 2026-10-01
+---
+{%- comment -%}
+  Edit this page whenever your focus changes. Update `updated:` above too.
+  Each item: a label, a headline and a sentence or two.
+{%- endcomment -%}
+<p class="updated mono">UPDATED {{ page.updated | date: '%b %-d, %Y' | upcase }}</p>
+
+<ul class="now-list">
+  <li>
+    <span class="now-k">DESIGNING</span>
+    <div class="now-v">
+      <strong>PlayAgent</strong>
+      <p>Writing the requirements for a Playwright platform where agents plan, author and heal tests, but never approve their own work. <a href="{{ site.posts.first.url | relative_url }}">Read the design notes →</a></p>
+    </div>
+  </li>
+  <li>
+    <span class="now-k">SHIPPING</span>
+    <div class="now-v">
+      <strong>AgenticPw v0.13.0</strong>
+      <p>Verified-green test generation and dry-run fixes for failing Playwright specs. <a href="https://github.com/JagannathaReddy/AgenticPw">GitHub →</a></p>
+    </div>
+  </li>
+  <li>
+    <span class="now-k">MAINTAINING</span>
+    <div class="now-v">
+      <strong>luma-browser</strong>
+      <p>A sandboxed CLI for driving real browsers from plain JavaScript, published on npm. <a href="https://www.npmjs.com/package/@jagannathamv/luma-browser">npm →</a></p>
+    </div>
+  </li>
+  <li>
+    <span class="now-k">DAY JOB</span>
+    <div class="now-v">
+      <strong>SDET at Signify</strong>
+      <p>Less writing tests by hand, more building what writes, runs and heals them.</p>
+    </div>
+  </li>
+  <li>
+    <span class="now-k">WRITING</span>
+    <div class="now-v">
+      <strong>This site</strong>
+      <p>Rebuilt it with a blog so the work-in-progress has somewhere to live. <a href="{{ '/blog/' | relative_url }}">Field notes →</a></p>
+    </div>
+  </li>
+</ul>
+
+<p class="now-note muted">This is a <a href="https://nownownow.com/about">now page</a>, a snapshot of current priorities rather than a full history.</p>

@@ -1,4 +1,41 @@
 (function () {
+  // ---- Theme toggle ----
+  var root = document.documentElement;
+  var toggles = document.querySelectorAll('[data-theme-toggle]');
+  var setThemeLabel = function () {
+    var dark = root.getAttribute('data-theme') === 'dark';
+    toggles.forEach(function (b) { b.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme'); });
+  };
+  setThemeLabel();
+  toggles.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      setThemeLabel();
+    });
+  });
+
+  // ---- Short / long bio (about) ----
+  var bioSwitch = document.querySelector('[data-bio-switch]');
+  if (bioSwitch) {
+    var current = 'short';
+    bioSwitch.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-bio]');
+      if (!b) return;
+      current = b.getAttribute('data-bio');
+      bioSwitch.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      document.querySelectorAll('[data-bio-text]').forEach(function (el) { el.hidden = el.getAttribute('data-bio-text') !== current; });
+    });
+    var copy = document.querySelector('[data-bio-copy]');
+    if (copy) copy.addEventListener('click', function () {
+      var text = document.querySelector('[data-bio-text="' + current + '"]').innerText.trim();
+      var done = function (t) { copy.textContent = t; setTimeout(function () { copy.textContent = 'Copy bio'; }, 1600); };
+      if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { done('Copied ✓'); }, function () { done('Copy failed'); });
+      else done('Copy not supported');
+    });
+  }
+
   // ---- Fail → pass demo card (home) ----
   var runner = document.querySelector('[data-runner]');
   if (runner) {

@@ -8,6 +8,7 @@ page_class: post
     <div class="meta mono">
       {% if page.tag %}<span class="accent">{{ page.tag | upcase }}</span>{% endif %}
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%b %-d, %Y' | upcase }}</time>
+      <span>{% include read-time.html content=content %}</span>
       <span>BY {{ site.author | upcase }}</span>
     </div>
     <h1 class="display post-title">{{ page.title }}</h1>
@@ -18,18 +19,17 @@ page_class: post
   <div class="prose">
     {{ content }}
 
+    {% include newsletter.html %}
+
     <aside class="author">
-      {% if site.avatar != "" %}
-        <img class="avatar" src="{{ site.avatar | relative_url }}" alt="{{ site.author }}">
-      {% else %}
-        <span class="avatar avatar-initials" aria-hidden="true">MV</span>
-      {% endif %}
+      {% include avatar.html %}
       <div class="author-text">
-        <strong>{{ site.author }}</strong>
+        <strong><a href="{{ '/about/' | relative_url }}">{{ site.author }}</a></strong>
         <span>{{ site.role }} at {{ site.company }}. Builds AgenticPw and luma-browser.</span>
       </div>
       <a class="btn btn-dark" href="mailto:{{ site.email }}?subject=Re: {{ page.title | uri_escape }}">Reply by email</a>
     </aside>
+    <p class="post-edit mono"><a href="https://github.com/{{ site.github_repo }}/blob/{{ site.github_branch }}/{{ page.path }}">View or edit this post on GitHub</a></p>
   </div>
 </article>
 

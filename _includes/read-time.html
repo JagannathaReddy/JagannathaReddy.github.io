@@ -1,0 +1,4 @@
+{%- comment -%} Words → minutes. Usage: {% include read-time.html content=post.content %} {%- endcomment -%}
+{%- assign rt_words = include.content | strip_html | number_of_words -%}
+{%- assign rt_min = rt_words | divided_by: site.reading_wpm | at_least: 1 -%}
+{{- rt_min }} min read

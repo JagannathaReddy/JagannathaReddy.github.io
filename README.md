@@ -58,7 +58,11 @@ Everything personal lives in a few files:
 | Featured projects ("Now shipping" tabs) | `_data/projects.yml` |
 | Posts published elsewhere (Medium, etc.) | `_data/external_posts.yml` |
 | Home page text | `index.html` |
-| Colors and fonts | top of `assets/css/site.css` (`--accent` is the blue) |
+| About page and the short/long bio | `about.html` |
+| Now page (what you're focused on) | `now.html`, and update `updated:` at the top |
+| Menu items | `nav:` in `_config.yml` |
+| Newsletter sign-up | set `newsletter: buttondown_username:` in `_config.yml` (free account at buttondown.com) |
+| Colors and fonts | top of `assets/css/site.css` (`--accent` is the blue; the dark theme is under "Dark theme") |
 
 - **Photo:** upload it as `assets/img/me.jpg`, then set `avatar: /assets/img/me.jpg` in `_config.yml`.
 - **Résumé:** upload a PDF as `assets/resume.pdf`, then set `resume_url: /assets/resume.pdf`.
