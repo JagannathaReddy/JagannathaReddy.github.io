@@ -1,62 +1,37 @@
 ---
 layout: default
-title: Field notes
+title: Articles
 page_class: blog
-description: Notes on test automation, AI agents and the plumbing in between.
+description: Articles on test automation, AI agents and the plumbing in between.
 ---
-<div class="wrap">
-  <header class="blog-head">
-    <h1 class="display blog-title">Field<br>notes</h1>
-    <div class="blog-intro">
-      <p class="lead">Notes on test automation, AI agents and the plumbing in between — what I tried, what broke, and what finally passed.</p>
-      <div class="btn-row">
-        <a class="mono accent small-link" href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
-        <a class="mono small-link" href="https://{{ site.social.medium }}.medium.com/">Older posts on Medium ↗</a>
-      </div>
-    </div>
-  </header>
+{% assign ext_count = site.data.external_posts | size %}
+{% assign total = site.posts.size | plus: ext_count %}
+<section class="wrap blog-head">
+  <div>
+    <p class="eyebrow mono">FIELD NOTES</p>
+    <h1 class="display blog-title">Articles on test automation &amp; AI agents</h1>
+    <p class="lead">What I tried, what broke, and what finally passed. Find a topic, or start with the latest.</p>
+  </div>
+  <p class="count mono">{{ total }} ARTICLES<br><a href="{{ '/feed.xml' | relative_url }}">RSS feed</a></p>
+</section>
 
-  <div class="filters" role="toolbar" aria-label="Filter posts by topic" data-filters>
+<div class="wrap">
+  <div class="filters" role="toolbar" aria-label="Filter articles by topic" data-filters>
     <button type="button" aria-pressed="true" data-filter="All">All</button>
     {% for t in site.topics %}<button type="button" aria-pressed="false" data-filter="{{ t }}">{{ t }}</button>{% endfor %}
   </div>
 
   <main class="blog-main">
-    {% assign featured = site.posts.first %}
-    {% if featured %}
-    <a class="featured" href="{{ featured.url | relative_url }}" data-tag="{{ featured.tag }}">
-      <div>
-        <span class="mono small featured-meta">LATEST · {{ featured.tag | upcase }} · {{ featured.date | date: '%b %-d, %Y' | upcase }} · {% include read-time.html content=featured.content %}</span>
-        <span class="display featured-title">{{ featured.title }}</span>
-      </div>
-      <div class="featured-side">
-        <span class="lead-sm">{{ featured.summary }}</span>
-        <span class="mono">Read the post →</span>
-      </div>
-    </a>
-    {% endif %}
-
-    <ol class="post-list">
-      {% for post in site.posts offset: 1 %}
-      <li data-tag="{{ post.tag }}">
-        <a href="{{ post.url | relative_url }}">
-          <span class="mono muted small">{{ post.date | date: '%b %Y' }}</span>
-          <span class="pl-main"><span class="pl-title">{{ post.title }}</span><span class="muted">{{ post.summary }}</span></span>
-          <span class="pl-tags mono small"><span class="chip">{{ post.tag }}</span><span class="muted">{% include read-time.html content=post.content %}</span></span>
-        </a>
-      </li>
+    <ol class="article-list">
+      {% for post in site.posts %}
+        {% include article-row.html title=post.title url=post.url summary=post.summary date=post.date content=post.content tag=post.tag %}
       {% endfor %}
       {% for ext in site.data.external_posts %}
-      <li data-tag="{{ ext.tag }}">
-        <a href="{{ ext.url }}">
-          <span class="mono muted small">{{ ext.date | date: '%b %Y' }}</span>
-          <span class="pl-main"><span class="pl-title">{{ ext.title }}</span><span class="muted">{{ ext.summary }}</span></span>
-          <span class="pl-tags mono small"><span class="chip">{{ ext.tag }}</span><span class="muted">{{ ext.where }} ↗</span></span>
-        </a>
-      </li>
+        {% include article-row.html title=ext.title url=ext.url summary=ext.summary date=ext.date tag=ext.tag where=ext.where %}
       {% endfor %}
     </ol>
     <p class="empty muted" data-empty hidden>Nothing under this topic yet.</p>
-    <div class="prose" style="padding:0;margin:0;max-width:720px">{% include newsletter.html %}</div>
   </main>
+
+  {% include keep-in-touch.html %}
 </div>

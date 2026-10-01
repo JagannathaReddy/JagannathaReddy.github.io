@@ -1,0 +1,31 @@
+{%- comment -%}
+  "Let's keep in touch" block. With a Buttondown username in _config.yml it shows
+  an email sign-up; without one it shows RSS / LinkedIn / GitHub follow links.
+{%- endcomment -%}
+<aside class="keep" aria-labelledby="keep-h">
+  <div class="keep-copy">
+    <p class="eyebrow mono">NEWSLETTER</p>
+    <h2 id="keep-h" class="display h2">Let's keep in touch</h2>
+    {% if site.newsletter.buttondown_username != "" %}
+      <p>Every now and then I send a note when something new goes up: test automation, AI agents, and what I learned shipping them. No ads, no spam, unsubscribe any time.</p>
+    {% else %}
+      <p>New articles land here first. Follow along by RSS, or connect with me where you already are.</p>
+    {% endif %}
+  </div>
+  {% if site.newsletter.buttondown_username != "" %}
+  <form class="keep-form" action="https://buttondown.com/api/emails/embed-subscribe/{{ site.newsletter.buttondown_username }}" method="post" target="_blank">
+    <label class="field-label" for="keep-email">Email address</label>
+    <div class="keep-row">
+      <input id="keep-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      <button class="btn btn-accent" type="submit">Subscribe</button>
+    </div>
+  </form>
+  {% else %}
+  <div class="keep-links">
+    <a class="btn btn-accent" href="{{ '/feed.xml' | relative_url }}">Follow via RSS</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/{{ site.social.linkedin }}/">LinkedIn</a>
+    <a class="btn btn-outline" href="https://github.com/{{ site.social.github }}">GitHub</a>
+    <a class="btn btn-ghost" href="mailto:{{ site.email }}">Email me <span aria-hidden="true">→</span></a>
+  </div>
+  {% endif %}
+</aside>

@@ -1,0 +1,20 @@
+{%- comment -%}
+  One row in an article list.
+  Params: title, url, summary, date, tag, content (own posts → read time), where (external site name)
+{%- endcomment -%}
+<li data-tag="{{ include.tag }}">
+  <a class="article-row" href="{% if include.where %}{{ include.url }}{% else %}{{ include.url | relative_url }}{% endif %}">
+    <span class="ar-main">
+      <span class="ar-title">{{ include.title }}</span>
+      {% if include.summary %}<span class="ar-summary">{{ include.summary }}</span>{% endif %}
+      <span class="ar-meta mono">
+        {% if include.tag %}<span class="chip">{{ include.tag }}</span>{% endif %}
+        <time datetime="{{ include.date | date_to_xmlschema }}">{{ include.date | date: '%b %-d, %Y' }}</time>
+        {% if include.where %}<span>· {{ include.where }} ↗</span>{% else %}<span>· {% include read-time.html content=include.content %}</span>{% endif %}
+      </span>
+    </span>
+    <span class="ar-arrow" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+    </span>
+  </a>
+</li>

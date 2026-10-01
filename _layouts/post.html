@@ -19,8 +19,6 @@ page_class: post
   <div class="prose">
     {{ content }}
 
-    {% include newsletter.html %}
-
     <aside class="author">
       {% include avatar.html %}
       <div class="author-text">
@@ -32,6 +30,8 @@ page_class: post
     <p class="post-edit mono"><a href="https://github.com/{{ site.github_repo }}/blob/{{ site.github_branch }}/{{ page.path }}">View or edit this post on GitHub</a></p>
   </div>
 </article>
+
+<div class="wrap">{% include keep-in-touch.html %}</div>
 
 <nav class="wrap prevnext" aria-label="More posts">
   {% if page.previous %}

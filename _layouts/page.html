@@ -3,7 +3,8 @@ layout: default
 ---
 <div class="wrap">
   <header class="page-head">
-    <h1 class="display page-title">{{ page.title }}</h1>
+    {% if page.headline %}<p class="eyebrow mono">{{ page.title | upcase }}</p>
+    <h1 class="display page-title">{{ page.headline }}</h1>{% else %}<h1 class="display page-title">{{ page.title }}</h1>{% endif %}
     {% if page.dek %}<p class="page-dek">{{ page.dek }}</p>{% endif %}
   </header>
 </div>

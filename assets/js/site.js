@@ -76,7 +76,7 @@
   // ---- Topic filters (blog) ----
   var filters = document.querySelector('[data-filters]');
   if (filters) {
-    var items = Array.prototype.slice.call(document.querySelectorAll('.featured[data-tag], .post-list li[data-tag]'));
+    var items = Array.prototype.slice.call(document.querySelectorAll('.article-list li[data-tag]'));
     var empty = document.querySelector('[data-empty]');
     var apply = function (topic) {
       var shown = 0;
